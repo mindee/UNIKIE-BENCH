@@ -5,13 +5,11 @@ document. The images inside are sorted by the first number found in their
 filename and combined into a single PDF named <subfolder>.pdf.
 """
 
-import logging
 import re
 from pathlib import Path
 
 from PIL import Image
 
-logger = logging.getLogger(__name__)
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 IMAGES_DIR = REPO_ROOT / "datasets" / "Commercial" / "images"
@@ -55,9 +53,9 @@ def main() -> None:
         pdf_path = IMAGES_DIR / f"{entry.name}.pdf"
         n_pages = merge_folder_to_pdf(entry, pdf_path)
         if n_pages:
-            logger.info(f"{entry.name}: {n_pages} pages -> {entry.name}.pdf")
+            print(f"{entry.name}: {n_pages} pages -> {entry.name}.pdf")
 
-    logger.info("Done.")
+    print("Done.")
 
 
 if __name__ == "__main__":

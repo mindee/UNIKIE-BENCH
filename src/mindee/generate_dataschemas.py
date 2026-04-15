@@ -7,14 +7,12 @@ indicating the original hierarchy), because the Mindee API only supports one lev
 """
 
 import json
-import logging
 import re
 from pathlib import Path
 from typing import Any
 
 from unidecode import unidecode
 
-logger = logging.getLogger(__name__)
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DATASETS_DIR = REPO_ROOT / "datasets"
@@ -172,7 +170,7 @@ def main() -> None:
             )
             count += 1
 
-        logger.info(f"{dataset_dir.name}: {count} files -> {out_dir}/")
+        print(f"{dataset_dir.name}: {count} files -> {out_dir}/")
 
 
 if __name__ == "__main__":
